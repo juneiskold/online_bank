@@ -1,14 +1,13 @@
 package Banking;
 
 public class Account {
-
     private int accountNumber;
     private String accountHolderName;
-    private String accountType;
+    private String accountType;  // New attribute for account type
     private double balance;
 
-    public Account(int accountNumber, String accountHolderName, double balance) {
-
+    // Updated constructor to accept accountType as a parameter
+    public Account(int accountNumber, String accountHolderName, String accountType, double balance) {
         this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.accountType = accountType;
@@ -32,16 +31,11 @@ public class Account {
     }
 
     public void deposit(double amount) {
-
         if (amount > 0) {
             balance += amount;
-            System.out.println("Deposit successful");
-            System.out.println("Deposited amount: " + amount );
-            System.out.println("Deposited " + amount + " to " + accountType);
-            System.out.println("New balance: " + balance);
-
+            System.out.println("Deposit successful! New balance: $" + balance);
         } else {
-            System.out.println("Deposit failed! Check if amount is greater than zero");
+            System.out.println("Deposit amount must be positive.");
         }
     }
 }
